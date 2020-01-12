@@ -7,17 +7,23 @@ const TopCryptoList = ( ) => {
 
     const [searchCrypto, results] = useResults();
 
-    console.log("THIS WE HAVE: " + results);
+    const valueToDecimals = ( value, decimals ) => {
+        let newValue = value.toFixed(decimals);
+        return newValue;
+    }
     
     return (
-        <View style={styles.container}>
+        <View style={styles.mainContainer}>
             <FlatList
                 showsVerticalScrollIndicator={false}
                 data={ results }
                 keyExtractor={( item ) => item.id}
                 renderItem={({ item }) => {
                     return (
-                        <Text key={item.id} style={styles.item}>{item.name}</Text>
+                        <View style={styles.cryptoContainer}>
+                            <Text style={styles.cryptoName}>{item.cmc_rank}.  {item.name}</Text>
+                            <Text style={styles.cryptoValue}>{valueToDecimals(item.quote.USD.price, 2)} $</Text>
+                        </View>
                     );
                 }}
             />
@@ -26,17 +32,26 @@ const TopCryptoList = ( ) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        margin: 25
+    mainContainer: {
+        margin: 25,
+        justifyContent: 'space-around'
     },
-    item: {
+    cryptoContainer: {
+        flexDirection: 'row',
         paddingVertical: 10,
-        fontSize: 20,
-        textAlign: 'left',
         width: '100%',
         borderBottomWidth: 1,
-        borderBottomColor: 'black'
-        
+        borderBottomColor: 'black'   
+    },
+    cryptoName: {
+        flex: 1,
+        fontSize: 18,
+        textAlign: 'left',
+    },
+    cryptoValue: {
+        flex: 1,
+        fontSize: 18,
+        textAlign: 'right'
     }
 })
 
