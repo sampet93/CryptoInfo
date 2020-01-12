@@ -9,7 +9,8 @@ export default () => {
     const options = {
         method: 'GET',
         params: {
-            'id': '1,2'
+            //'id': '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17',
+            'limit': '10'
         },
         headers: {
             'Accept': 'application/json',
@@ -22,7 +23,7 @@ export default () => {
       
     const searchCrypto = async () => {
         try {
-            const response =  await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest', options);
+            const response =  await axios.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', options);
             const responseArray = [];
             Object.keys(response.data.data).map( (key, index ) => {
                 responseArray.push(response.data.data[key]);
