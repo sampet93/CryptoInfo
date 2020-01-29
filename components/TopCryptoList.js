@@ -3,8 +3,9 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import useResults from '../hooks/useResults';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { withNavigation } from 'react-navigation';
 
-const TopCryptoList = ( ) => {
+const TopCryptoList = ( { navigation } ) => {
 
     const [searchCrypto, results] = useResults();
 
@@ -14,7 +15,7 @@ const TopCryptoList = ( ) => {
     }
 
     const cryptoPressed = () => {
-
+        navigation.navigate('Detail');
     }
     
     return (
@@ -25,7 +26,7 @@ const TopCryptoList = ( ) => {
                 keyExtractor={( item ) => item.id}
                 renderItem={({ item }) => {
                     return (
-                        <TouchableOpacity onPress={cryptoPressed()} style={styles.cryptoContainer}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Detail', { name: item.name })} style={styles.cryptoContainer}>
                             <Text style={styles.cryptoName}>{item.cmc_rank}.  {item.name}</Text>
                             <Text style={styles.cryptoValue}>{valueToDecimals(item.quote.USD.price, 3)} $</Text>
                         </TouchableOpacity>
@@ -60,4 +61,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default TopCryptoList;
+export default withNavigation(TopCryptoList);

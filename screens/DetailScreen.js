@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const DetailScreen = () => {
+const DetailScreen = ({ navigation }) => {
+
+    const cryptoName = navigation.getParam('name');
     return (
         <View>
-            <Text>Detail Screen</Text>
+            <Text>Detail Screen {cryptoName}</Text>
         </View>
     )
 }
