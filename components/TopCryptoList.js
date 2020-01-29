@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, TextBase } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import useResults from '../hooks/useResults';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const TopCryptoList = ( ) => {
 
@@ -10,6 +11,10 @@ const TopCryptoList = ( ) => {
     const valueToDecimals = ( value, decimals ) => {
         let newValue = value.toFixed(decimals);
         return newValue;
+    }
+
+    const cryptoPressed = () => {
+
     }
     
     return (
@@ -20,10 +25,10 @@ const TopCryptoList = ( ) => {
                 keyExtractor={( item ) => item.id}
                 renderItem={({ item }) => {
                     return (
-                        <View style={styles.cryptoContainer}>
+                        <TouchableOpacity onPress={cryptoPressed()} style={styles.cryptoContainer}>
                             <Text style={styles.cryptoName}>{item.cmc_rank}.  {item.name}</Text>
-                            <Text style={styles.cryptoValue}>{valueToDecimals(item.quote.USD.price, 2)} $</Text>
-                        </View>
+                            <Text style={styles.cryptoValue}>{valueToDecimals(item.quote.USD.price, 3)} $</Text>
+                        </TouchableOpacity>
                     );
                 }}
             />
@@ -33,8 +38,8 @@ const TopCryptoList = ( ) => {
 
 const styles = StyleSheet.create({
     mainContainer: {
-        margin: 25,
-        justifyContent: 'space-around'
+        flex: 1,
+        margin: 25
     },
     cryptoContainer: {
         flexDirection: 'row',
@@ -45,7 +50,7 @@ const styles = StyleSheet.create({
     },
     cryptoName: {
         flex: 1,
-        fontSize: 18,
+        fontSize: 16,
         textAlign: 'left',
     },
     cryptoValue: {

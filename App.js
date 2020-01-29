@@ -1,17 +1,20 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
 import { Notifications } from 'expo';
 import HomeScreen from './screens/HomeScreen';
 import DetailScreen from './screens/DetailScreen';
 
-const drawerNavigator = createDrawerNavigator({
-  Home: {
-    screen: HomeScreen
+const navigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Detail: DetailScreen
   },
-  Detail: {
-    screen: DetailScreen
-  }
+  {
+    initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      title: 'Top Cryptocurrencies'
+    }
 });
 
-export default createAppContainer(drawerNavigator);
+export default createAppContainer(navigator);
