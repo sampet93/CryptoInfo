@@ -7,8 +7,16 @@ import DetailScreen from './screens/DetailScreen';
 
 const navigator = createStackNavigator(
   {
-    Home: HomeScreen,
-    Detail: DetailScreen
+    Home: {
+      screen: HomeScreen,
+      title: 'asd'
+    },
+    Detail: {
+      screen: DetailScreen,
+      // navigationOptions: ({ navigation }) => ({
+      //   title: 'moi Profile',
+      // }),
+    }
   },
   {
     initialRouteName: 'Home',
