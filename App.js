@@ -9,16 +9,13 @@ const navigator = createStackNavigator(
   {
     Home: {
       screen: HomeScreen,
-      title: 'asd'
     },
     Detail: {
       screen: DetailScreen,
-      // navigationOptions: ({ navigation }) => ({
-      //   title: 'moi Profile',
-      // }),
     }
   },
   {
+    headerLayoutPreset: 'center',
     initialRouteName: 'Home',
     defaultNavigationOptions: {
       title: 'Top Cryptocurrencies'

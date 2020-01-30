@@ -6,7 +6,9 @@ const DetailScreen = ({ navigation }) => {
     const cryptoName = navigation.getParam('name');
 
     DetailScreen.navigationOptions = {
-        title: `${cryptoName}`
+        alignSelf: 'center',
+        title: `${cryptoName}`,
+       
     };
 
     return (
@@ -15,8 +17,6 @@ const DetailScreen = ({ navigation }) => {
         </View>
     )
 }
-
-
 
 const styles = StyleSheet.create({});
 
