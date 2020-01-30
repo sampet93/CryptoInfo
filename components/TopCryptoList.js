@@ -26,7 +26,16 @@ const TopCryptoList = ( { navigation } ) => {
                 keyExtractor={( item ) => item.id}
                 renderItem={({ item }) => {
                     return (
-                        <TouchableOpacity onPress={() => navigation.navigate('Detail', { name: item.name })} style={styles.cryptoContainer}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Detail', { 
+                            name: item.name,
+                            rank: item.cmc_rank,
+                            value: valueToDecimals(item.quote.USD.price, 3),
+                            symbol: item.symbol,
+                            marketCap: valueToDecimals(item.quote.USD.market_cap, 0),
+                            change1h: valueToDecimals(item.quote.USD.percent_change_1h, 2),
+                            change24h: valueToDecimals(item.quote.USD.percent_change_24h, 2),
+                            change7d: valueToDecimals(item.quote.USD.percent_change_7d, 2)
+                            })} style={styles.cryptoContainer}>
                             <Text style={styles.cryptoName}>{item.cmc_rank}.  {item.name}</Text>
                             <Text style={styles.cryptoValue}>{valueToDecimals(item.quote.USD.price, 3)} $</Text>
                         </TouchableOpacity>

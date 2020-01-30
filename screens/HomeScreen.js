@@ -6,10 +6,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import TopCryptoList from '../components/TopCryptoList';
 
 const HomeScreen = () => {
-
     return (
         <View style={{ flex: 1 }}>
-            <Text style={styles.headerStyle}>Top cryptocurrencies</Text>
             <TopCryptoList></TopCryptoList>
         </View>
     )
