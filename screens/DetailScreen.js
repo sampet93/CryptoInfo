@@ -26,7 +26,7 @@ const DetailScreen = ({ navigation }) => {
             </View>
             <View style={styles.boxesContainer}>
                 <View style={styles.boxStyle}>
-                    <Text style={styles.captionStyle}>VALUE</Text>
+                    <Text style={styles.captionStyle}>Value</Text>
                     <Text style={styles.detailStyle}>{cryptoValue} $</Text>
                 </View>
                 <View style={styles.boxStyle}>
@@ -54,20 +54,24 @@ const DetailScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     captionStyle: {
+        fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 20,
-        marginVertical: 4
+        marginVertical: 4,
+        color: 'white'
     },
     detailStyle: {
         textAlign: 'center',
         fontSize: 16, 
-        marginVertical: 4
+        marginVertical: 4,
+        color: 'white'
     },
     boxStyle: {
-        borderWidth: 1,
         flex: 1,
         padding: 10,
-        margin: 5
+        margin: 5,
+        backgroundColor: 'rgb(225, 57, 57)',
+        borderRadius: 7
     },
     mainContainer: {
         flex: 1,
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     boxesContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
     }
 });
 
