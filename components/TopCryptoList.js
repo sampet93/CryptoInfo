@@ -37,7 +37,7 @@ const TopCryptoList = ( { navigation } ) => {
                             change7d: valueToDecimals(item.quote.USD.percent_change_7d, 2)
                             })} style={styles.cryptoContainer}>
                             <Text style={styles.cryptoName}>{item.cmc_rank}.  {item.name}</Text>
-                            <Text style={styles.cryptoValue}>{valueToDecimals(item.quote.USD.price, 3)} $</Text>
+                            <Text style={styles.cryptoValue}>{valueToDecimals(item.quote.USD.price, 2)} $</Text>
                         </TouchableOpacity>
                     );
                 }}
@@ -56,17 +56,25 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         width: '100%',
         borderBottomWidth: 1,
-        borderBottomColor: 'black'   
+        borderBottomColor: 'rgb(225, 57, 57)',
+        alignItems: 'center',
+        justifyContent: 'center'
+        
     },
     cryptoName: {
         flex: 1,
         fontSize: 16,
         textAlign: 'left',
+        backgroundColor: 'rgb(225, 57, 57)',
+        borderRadius: 10,
+        padding: 4,
+        color: 'white'
     },
     cryptoValue: {
         flex: 1,
         fontSize: 18,
-        textAlign: 'right'
+        textAlign: 'right',
+        
     }
 })
 

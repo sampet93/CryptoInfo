@@ -20,32 +20,34 @@ const DetailScreen = ({ navigation }) => {
         <View style={styles.mainContainer}>
             <View style={styles.boxesContainer}>
                 <View style={styles.boxStyle}>
-                    <Text style={styles.captionStyle}>Rank</Text>
-                    <Text style={styles.detailStyle}>{cryptoRank}. </Text>
+                    <Text style={styles.headingTextStyle}>Rank</Text>
+                    <Text style={styles.detailTextStyle}>{cryptoRank}. </Text>
                 </View>
             </View>
             <View style={styles.boxesContainer}>
                 <View style={styles.boxStyle}>
-                    <Text style={styles.captionStyle}>Value</Text>
-                    <Text style={styles.detailStyle}>{cryptoValue} $</Text>
-                </View>
-                <View style={styles.boxStyle}>
-                    <Text style={styles.captionStyle}>Market Cap</Text>
-                    <Text style={styles.detailStyle}>{cryptoMarketCap} $ </Text>
+                    <Text style={styles.headingTextStyle}>Value</Text>
+                    <Text style={styles.detailTextStyle}>{cryptoValue} $</Text>
                 </View>
             </View>
             <View style={styles.boxesContainer}>
                 <View style={styles.boxStyle}>
-                    <Text style={styles.captionStyle}>Last 1h</Text>
-                    <Text style={styles.detailStyle}>{change1h} %</Text>
+                    <Text style={styles.headingTextStyle}>Market Cap</Text>
+                    <Text style={styles.detailTextStyle}>{cryptoMarketCap} $ </Text>
+                </View>
+            </View>
+            <View style={styles.boxesContainer}>
+                <View style={styles.boxStyle}>
+                    <Text style={styles.headingTextStyle}>Last 1h</Text>
+                    <Text style={styles.detailTextStyle}>{change1h} %</Text>
                 </View>
                 <View style={styles.boxStyle}>
-                    <Text style={styles.captionStyle}>Last 24h</Text>
-                    <Text style={styles.detailStyle}>{change24h} %</Text>
+                    <Text style={styles.headingTextStyle}>Last 24h</Text>
+                    <Text style={styles.detailTextStyle}>{change24h} %</Text>
                 </View>
                 <View style={styles.boxStyle}>
-                    <Text style={styles.captionStyle}>Last 7d</Text>
-                    <Text style={styles.detailStyle}>{change7d} %</Text>
+                    <Text style={styles.headingTextStyle}>Last 7d</Text>
+                    <Text style={styles.detailTextStyle}>{change7d} %</Text>
                 </View>
             </View>
         </View>
@@ -53,30 +55,32 @@ const DetailScreen = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    captionStyle: {
+    headingTextStyle: {
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 20,
         marginVertical: 4,
-        color: 'white'
+        color: 'white',
+        backgroundColor: 'rgb(225, 57, 57)',
+        borderRadius: 7
     },
-    detailStyle: {
+    detailTextStyle: {
         textAlign: 'center',
-        fontSize: 16, 
+        fontSize: 24, 
         marginVertical: 4,
-        color: 'white'
+        color: 'rgb(225, 57, 57)'
     },
     boxStyle: {
         flex: 1,
         padding: 10,
         margin: 5,
-        backgroundColor: 'rgb(225, 57, 57)',
-        borderRadius: 7
+        //backgroundColor: 'rgb(225, 57, 57)',
+        //borderRadius: 7
     },
     mainContainer: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'center'
+        justifyContent: 'flex-start'
     },
     boxesContainer: {
         flexDirection: 'row',
